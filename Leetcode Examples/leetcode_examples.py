@@ -49,23 +49,23 @@ class EasySolutions(object):
 		return s*r * (r < 2**31)
 
 	def numJewelsInStones_771(self, J, S):
-        """
-        :type J: 	str
-        :type S: 	str
-        :rtype: 	int
+		"""
+		:type J: 	str
+		:type S: 	str
+		:rtype: 	int
 
-        Example
-        -------
-        easy.numJewelsInStones_771("aA", "aAAbbbb") = 3
+		Example
+		-------
+		easy.numJewelsInStones_771("aA", "aAAbbbb") = 3
 
-        Results
-        -------
-        24 ms 	- 55.19%
-        11.9 MB - 5.25%
-        """
-        
-        jewels = 0
-        for i in J:
-            jewels += sum([1 for j in S if j == i])
-            
-        return jewels
+		Results
+		-------
+		24 ms 	- 55.19%
+		11.9 MB - 5.25%
+		"""
+
+		jewels = 0
+		for i in J:
+		    jewels += sum([1 for j in S if j == i])
+
+		return jewels
