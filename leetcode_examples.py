@@ -47,6 +47,29 @@ class EasySolutions(object):
 				return [index[target - x], i]
 			index[x] = i
 
+	def isPalindrome_9(self, x):
+		"""
+		Description
+		-----------
+		Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+		Parameters
+		----------
+		:type x: 	int
+        :rtype: 	bool
+
+		Example
+		-------
+		easy.isPalindrome_1(-121) = False
+
+		Results
+		-------
+		80 ms 	- 97.28%
+		11.7 MB - 5.35%
+		"""
+		
+		return str(x)[::-1] == str(x)
+
 	def reverse_7(self, x):
 		"""
 		Description
