@@ -14,8 +14,17 @@ class EasySolutions(object):
 
 		# print(function_list)
 
+	def run_problem():
+		1 + 1
+
 	def twoSum_1(self, nums, target):
 		"""
+		Description
+		-----------
+
+
+		Parameters
+		----------
 		:type nums: 	List[int]
 		:type target: 	int
 		:rtype: 		List[int]
