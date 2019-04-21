@@ -111,7 +111,7 @@ class EasySolutions(object):
 
         Example
         -------
-        easy.romanToInt(LVIII) = 58
+        easy.romanToInt_13(LVIII) = 58
 
         Results
         -------
@@ -137,6 +137,30 @@ class EasySolutions(object):
                 result -= translate[i]
         
         return result
+
+    def longestCommonPrefix_14(self, strs):
+        """
+        Description
+        -----------
+        Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
+
+        Parameters
+        ----------
+        :type strs:     List[str]
+        :rtype:         str
+
+        Example
+        -------
+        easy.longestCommonPrefix_14(["flower","flow","flight"]) = "fl"
+
+        Results
+        -------
+        20 ms 	- 98.37%
+        12.0 MB - 5.47%
+        """
+        
+        r = [len(set(c)) == 1 for c in zip(*strs)] + [0]
+        return strs[0][:r.index(0)] if strs else ''
 
     def numJewelsInStones_771(self, J, S):
         """
