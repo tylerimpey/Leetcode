@@ -1,4 +1,6 @@
 
 from leetcode_examples import *
 
-EasySolutions()
+easy = EasySolutions()
+
+easy.run_problem(7)
