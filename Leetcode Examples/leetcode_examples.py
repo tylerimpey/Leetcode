@@ -12,7 +12,7 @@ class EasySolutions(object):
 		for func in function_list:
 			print(func)
 
-		print(function_list)
+		# print(function_list)
 
 	def twoSum_1(self, nums, target):
 		"""
