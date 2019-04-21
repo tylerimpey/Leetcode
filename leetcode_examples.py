@@ -88,3 +88,21 @@ class EasySolutions(object):
 		    jewels += sum([1 for j in S if j == i])
 
 		return jewels
+
+class MediumSolutions(object):
+	"""
+	Example
+	-------
+	medium = MediumSolutions()
+	"""
+
+	def __init__(self):
+		self.methods = [func for func in dir(EasySolutions) if callable(getattr(EasySolutions, func)) and '__' not in func]
+		self.methods.remove('run_problem')
+
+	def run_problem(self, problem):
+		problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
+
+		method = getattr(EasySolutions, problem)
+
+		print(method.__doc__)
