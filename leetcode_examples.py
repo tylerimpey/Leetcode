@@ -12,16 +12,18 @@ class EasySolutions(object):
 
 	def run_problem(self, problem):
 		problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
-
 		method = getattr(EasySolutions, problem)
-
 		print(method.__doc__)
 
 	def twoSum_1(self, nums, target):
 		"""
 		Description
 		-----------
+		Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
+		Assumptions
+		-----------
+		You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 		Parameters
 		----------
@@ -47,12 +49,18 @@ class EasySolutions(object):
 
 	def reverse_7(self, x):
 		"""
+		Description
+		-----------
+		Given a 32-bit signed integer, reverse digits of an integer.
+
+		Parameters
+		----------
 		:type x: 	int
 		:rtype: 	int
 
 		Example
 		-------
-		easy.reverse_7(123) = 321
+		easy.reverse_7(-123) = -321
 
 		Results
 		-------
@@ -69,6 +77,18 @@ class EasySolutions(object):
 
 	def numJewelsInStones_771(self, J, S):
 		"""
+		Description
+		-----------
+		You're given strings J representing the types of stones that are jewels, and S representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.
+
+		Assumptions
+		-----------
+		The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so "a" is considered a different type of stone from "A".
+		S and J will consist of letters and have length at most 50.
+		The characters in J are distinct.
+
+		Parameters
+		----------
 		:type J: 	str
 		:type S: 	str
 		:rtype: 	int
@@ -97,12 +117,30 @@ class MediumSolutions(object):
 	"""
 
 	def __init__(self):
-		self.methods = [func for func in dir(EasySolutions) if callable(getattr(EasySolutions, func)) and '__' not in func]
+		self.methods = [func for func in dir(MediumSolutions) if callable(getattr(MediumSolutions, func)) and '__' not in func]
 		self.methods.remove('run_problem')
 
 	def run_problem(self, problem):
 		problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
 
-		method = getattr(EasySolutions, problem)
+		method = getattr(MediumSolutions, problem)
+
+		print(method.__doc__)
+
+class HardSolutions(object):
+	"""
+	Example
+	-------
+	hard = HardSolutions()
+	"""
+
+	def __init__(self):
+		self.methods = [func for func in dir(HardSolutions) if callable(getattr(HardSolutions, func)) and '__' not in func]
+		self.methods.remove('run_problem')
+
+	def run_problem(self, problem):
+		problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
+
+		method = getattr(HardSolutions, problem)
 
 		print(method.__doc__)
