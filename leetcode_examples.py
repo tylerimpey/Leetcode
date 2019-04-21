@@ -9,7 +9,10 @@ class EasySolutions(object):
 	def __init__(self):
 		function_list = [func for func in dir(EasySolutions) if callable(getattr(EasySolutions, func))]
 
-		print(function_list)
+		for func in function_list:
+			print(func)
+
+		# print(function_list)
 
 	def twoSum_1(self, nums, target):
 		"""
