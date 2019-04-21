@@ -7,15 +7,15 @@ class EasySolutions(object):
 	"""
 
 	def __init__(self):
-		function_list = [func for func in dir(EasySolutions) if callable(getattr(EasySolutions, func))]
+		self.methods = [func for func in dir(EasySolutions) if callable(getattr(EasySolutions, func)) and '__' not in func]
+		self.methods.remove('run_problem')
 
-		for func in function_list:
-			print(func)
+	def run_problem(self, problem):
+		problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
 
-		# print(function_list)
+		method = getattr(EasySolutions, problem)
 
-	def run_problem():
-		1 + 1
+		print(method.__doc__)
 
 	def twoSum_1(self, nums, target):
 		"""
