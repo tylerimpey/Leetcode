@@ -195,7 +195,6 @@ class EasySolutions(object):
         if len(queue) == 0:
             return True
 
-    # attempted - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
     def removeDuplicates_26(self, nums):
         """
         Description
@@ -362,6 +361,38 @@ class EasySolutions(object):
         result = [int(digit) for digit in str(int(number) + 1)]
         
         return result
+
+    def addBinary_67(self, a, b):
+        """
+        Description
+        -----------
+        Given two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0.
+        
+        Parameters
+        ----------
+        :type a:    str
+        :type b:    str
+        :rtype:     str
+        """
+        
+        result = list(str(int(a) + int(b)))[::-1]
+        
+        to_return = ''
+        
+        remainder = 0
+        for i in range(len(result)):
+            temp = int(result[i]) + remainder
+            if temp >= 2:
+                to_return += str(temp % 2)
+                remainder = 1
+            else:
+                to_return += str(temp)
+                remainder = 0
+        
+        if remainder == 1:
+            to_return += '1'
+        
+        return to_return[::-1]
 
     def mySqrt_69(self, x):
         """
