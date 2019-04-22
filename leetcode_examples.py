@@ -328,6 +328,25 @@ class EasySolutions(object):
         
         return sum(list(set(nums)))*2 - sum(nums)
 
+    def containsDuplicate_217(self, nums):
+        """
+        Description
+        -----------
+        Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         bool
+        """
+        
+        unique = list(set(nums))
+        
+        if len(unique) == len(nums):
+            return False
+        else:
+            return True
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
