@@ -408,6 +408,24 @@ class EasySolutions(object):
         
         return sum(list(set(nums)))*2 - sum(nums)
 
+    def majorityElement_169(self, nums):
+        """
+        Description
+        -----------
+        Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         int
+        """
+        
+        unique = list(set(nums))
+        for number in unique:
+            count = sum([1 if num == number else 0 for num in nums])
+            if count > int(len(nums)/2):
+                return number
+
     def containsDuplicate_217(self, nums):
         """
         Description
