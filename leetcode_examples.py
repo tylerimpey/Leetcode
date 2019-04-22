@@ -422,6 +422,21 @@ class EasySolutions(object):
                 return False
         return True
 
+    def missingNumber_268(self, nums):
+        """
+        Description
+        -----------
+        Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array. Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        n = len(nums)
+        return n * (n+1) / 2 - sum(nums)
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
