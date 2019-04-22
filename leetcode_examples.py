@@ -478,15 +478,23 @@ class EasySolutions(object):
         :rtype:         None Do not return anything, modify nums in-place instead.
         """
         
-        left = 0
-        rite = len(nums)
+        # left = 0
+        # rite = len(nums)
         
-        while left < rite:
-            if nums[left] == 0:
-                nums[-1], nums[:-1] = 0, nums[:left] + nums[left+1:]
-                rite -= 1
-            else:
-                left += 1
+        # while left < rite:
+        #     if nums[left] == 0:
+        #         nums[-1], nums[:-1] = 0, nums[:left] + nums[left+1:]
+        #         rite -= 1
+        #     else:
+        #         left += 1
+
+        non_zero = [num for num in nums if num]
+        zeros    = sum([1 if num == 0 else 0 for num in nums])
+        
+        result = non_zero + [0]*zeros
+        
+        for i in range(len(nums)):
+            nums[i] = result[i] if result[i] else 0
 
     def numJewelsInStones_771(self, J, S):
         """
