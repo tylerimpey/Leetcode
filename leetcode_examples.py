@@ -208,18 +208,20 @@ class EasySolutions(object):
         :rtype:         int
         """
         
-        unique = set()
-        left = 0
-        rite = len(nums)
-        while left < rite:
-            if nums[left] not in unique:
-                unique.add(nums[left])
-                left += 1
-            else:
-                nums[-1], nums[:-1] = nums[left], nums[:left] + nums[left+1:]
-                rite -= 1
-                
-        return len(list(unique))
+        if len(nums) <=1:
+            return len(nums) 
+        
+        fast, slow = 0,0 
+        
+        count = 1
+        while fast < len(nums):
+            if nums[fast] != nums[slow]:
+                count += 1 
+                slow  += 1
+                nums[slow] = nums[fast]
+            fast += 1 
+            
+        return count
 
     def removeElement_27(self, nums, val):
         """
