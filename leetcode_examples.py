@@ -162,6 +162,34 @@ class EasySolutions(object):
         r = [len(set(c)) == 1 for c in zip(*strs)] + [0]
         return strs[0][:r.index(0)] if strs else ''
 
+    def strStr_28(self, haystack, needle):
+        """
+        Description
+        -----------
+        Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+        
+        Assumptions
+        -----------
+        What should we return when needle is an empty string? This is a great question to ask during an interview. For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+        
+        Parameters
+        ---------
+        :type haystack:     str
+        :type needle:       str
+        :rtype:             int
+        """
+        
+        length = len(needle)
+        
+        if haystack == needle:
+            return 0
+        
+        for i in range(len(haystack)-length+1):
+            if haystack[i:i+length] == needle:
+                return i
+            
+        return -1
+
     def searchInsert_35(self, nums, target):
         """
         Description
