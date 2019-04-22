@@ -408,6 +408,7 @@ class EasySolutions(object):
         
         return sum(list(set(nums)))*2 - sum(nums)
 
+    # code stuck on pending - https://leetcode.com/problems/majority-element/
     def majorityElement_169(self, nums):
         """
         Description
