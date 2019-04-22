@@ -437,35 +437,6 @@ class EasySolutions(object):
         n = len(nums)
         return n * (n+1) / 2 - sum(nums)
 
-    def wordPattern_290(self, pattern, str):
-        """
-        Description
-        -----------
-        Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
-        
-        Parameters
-        ----------
-        :type pattern:  str
-        :type str:      str
-        :rtype:         bool
-        """
-        
-        unique_p = []
-        for i in pattern:
-            if i not in unique_p:
-                unique_p.append(i)
-        
-        order_p = [unique_p.index(letter) for letter in pattern]
-        
-        unique_s = []
-        for i in str.split(' '):
-            if i not in unique_s:
-                unique_s.append(i)
-        
-        order_s = [unique_s.index(word) for word in str.split(' ')]
-        
-        return order_p == order_s
-
     def moveZeroes_283(self, nums):
         """
         Description
@@ -495,6 +466,49 @@ class EasySolutions(object):
         
         for i in range(len(nums)):
             nums[i] = result[i] if result[i] else 0
+
+    def wordPattern_290(self, pattern, str):
+        """
+        Description
+        -----------
+        Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
+        
+        Parameters
+        ----------
+        :type pattern:  str
+        :type str:      str
+        :rtype:         bool
+        """
+        
+        unique_p = []
+        for i in pattern:
+            if i not in unique_p:
+                unique_p.append(i)
+        
+        order_p = [unique_p.index(letter) for letter in pattern]
+        
+        unique_s = []
+        for i in str.split(' '):
+            if i not in unique_s:
+                unique_s.append(i)
+        
+        order_s = [unique_s.index(word) for word in str.split(' ')]
+        
+        return order_p == order_s
+
+    def canWinNim_292(self, n):
+        """
+        Description
+        -----------
+        You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones. Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     bool
+        """
+        
+        return n % 4 != 0
 
     def numJewelsInStones_771(self, J, S):
         """
