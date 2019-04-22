@@ -466,6 +466,28 @@ class EasySolutions(object):
         
         return order_p == order_s
 
+    def moveZeroes_283(self, nums):
+        """
+        Description
+        -----------
+        Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         None Do not return anything, modify nums in-place instead.
+        """
+        
+        left = 0
+        rite = len(nums)
+        
+        while left < rite:
+            if nums[left] == 0:
+                nums[-1], nums[:-1] = 0, nums[:left] + nums[left+1:]
+                rite -= 1
+            else:
+                left += 1
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
