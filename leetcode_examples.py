@@ -195,6 +195,32 @@ class EasySolutions(object):
         if len(queue) == 0:
             return True
 
+    # code stuck on pending - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+    def removeDuplicates_26(self, nums):
+        """
+        Description
+        -----------
+        Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         int
+        """
+        
+        unique = set()
+        left = 0
+        rite = len(nums)
+        while left < rite:
+            if nums[left] not in unique:
+                unique.add(nums[left])
+                left += 1
+            else:
+                nums[-1], nums[:-1] = nums[left], nums[:left] + nums[left+1:]
+                rite -= 1
+                
+        return len(list(unique))
+
     def removeElement_27(self, nums, val):
         """
         Description
@@ -269,6 +295,27 @@ class EasySolutions(object):
                 return i
             
         return len(nums)
+
+    # code stuck on pending - https://leetcode.com/problems/maximum-subarray/
+    def maxSubArray_53(self, nums):
+        """
+        Description
+        -----------
+        Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         int
+        """
+        
+        current = 0
+        result = nums[0]
+        for i in nums:
+            current += i
+            result  = max(current,result)
+            current = max(0,current)
+        return result
 
     def lengthOfLastWord_58(self, s):
         """
