@@ -282,6 +282,38 @@ class EasySolutions(object):
         
         return result
 
+    def mySqrt_69(self, x):
+        """
+        Description
+        -----------
+        Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+        
+        Parameters
+        ----------
+        :type x: int
+        :rtype: int
+        """
+        
+        if x == 0:
+            return 0
+        
+        if x <= 3:
+            return 1
+        
+        high = x
+        mid = x / 2.
+        low = 1
+        
+        while mid**2 < x or mid**2 > x + 0.01:
+            if mid**2 > x:
+                high = mid
+                mid = (low + mid)/2.
+            else:
+                low = mid
+                mid = (high + mid)/2.
+                
+        return int(mid)
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
