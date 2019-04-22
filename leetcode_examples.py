@@ -195,7 +195,7 @@ class EasySolutions(object):
         if len(queue) == 0:
             return True
 
-    # code stuck on pending - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+    # attempted - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
     def removeDuplicates_26(self, nums):
         """
         Description
@@ -296,7 +296,6 @@ class EasySolutions(object):
             
         return len(nums)
 
-    # code stuck on pending - https://leetcode.com/problems/maximum-subarray/
     def maxSubArray_53(self, nums):
         """
         Description
