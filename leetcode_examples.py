@@ -162,6 +162,29 @@ class EasySolutions(object):
         r = [len(set(c)) == 1 for c in zip(*strs)] + [0]
         return strs[0][:r.index(0)] if strs else ''
 
+    def searchInsert_35(self, nums, target):
+        """
+        Description
+        -----------
+        Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+        Assumptions
+        -----------
+        You may assume no duplicates in the array.
+
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :type target:   int
+        :rtype:         int
+        """
+        
+        for i in range(len(nums)):
+            if nums[i] >= target:
+                return i
+            
+        return len(nums)
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
