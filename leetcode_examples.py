@@ -366,7 +366,7 @@ class EasySolutions(object):
         """
         Description
         -----------
-        Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+        Given a non-negative integer num, repeatedly add all its digits until the result has only one digit. Could you do it without any loop/recursion in O(1) runtime?
         
         Parameters
         ----------
@@ -374,11 +374,13 @@ class EasySolutions(object):
         :rtype:     int
         """
         
-        num = str(num)
-        while len(num) != 1:
-            num = str(sum([int(digit) for digit in num]))
+        # num = str(num)
+        # while len(num) != 1:
+        #     num = str(sum([int(digit) for digit in num]))
             
-        return int(num)
+        # return int(num)
+
+        return num if num == 0 else num % 9 or 9
 
     def numJewelsInStones_771(self, J, S):
         """
