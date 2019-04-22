@@ -399,6 +399,29 @@ class EasySolutions(object):
                 num /= p
         return num == 1
 
+    def canPermutePalindrome_266(self, s):
+        """
+        Description
+        -----------
+        Given a string, determine if a permutation of the string could form a palindrome.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     bool
+        """
+        
+        dic = {}
+        for item in s:
+            dic[item] = dic.get(item, 0) + 1
+        count1 = 0
+        for val in dic.values():
+            if val % 2 == 1:
+                count1 += 1
+            if count1 > 1:
+                return False
+        return True
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
