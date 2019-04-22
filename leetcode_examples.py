@@ -187,6 +187,16 @@ class EasySolutions(object):
 
     def lengthOfLastWord_58(self, s):
         """
+        Description
+        -----------
+        Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string. If the last word does not exist, return 0.
+
+        Assumptions
+        -----------
+        A word is defined as a character sequence consists of non-space characters only.
+
+        Parameters
+        ----------
         :type s:    str
         :rtype:     int
         """
@@ -195,6 +205,30 @@ class EasySolutions(object):
         s = s.split(' ')
         
         return len(s[-1])
+
+    def plusOne_66(self, digits):
+        """
+        Description
+        -----------
+        Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+
+        Assumptions
+        -----------
+        The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit. You may assume the integer does not contain any leading zero, except the number 0 itself.
+
+        Parameters
+        ----------
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        
+        number = ""
+        for digit in digits:
+            number += str(digit)
+            
+        result = [int(digit) for digit in str(int(number) + 1)]
+        
+        return result
 
     def numJewelsInStones_771(self, J, S):
         """
