@@ -162,6 +162,30 @@ class EasySolutions(object):
         r = [len(set(c)) == 1 for c in zip(*strs)] + [0]
         return strs[0][:r.index(0)] if strs else ''
 
+    def removeElement_27(self, nums, val):
+        """
+        Description
+        -----------
+        Given an array nums and a value val, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :type val:      int
+        :rtype:         int
+        """
+        
+        length = len(nums)
+        i = 0
+        while i < length:
+            if nums[i] == val:
+                nums[-1], nums[:-1] = nums[i], nums[:i]+nums[i+1:]
+                length -= 1
+            else:
+                i += 1
+                
+        return i
+
     def strStr_28(self, haystack, needle):
         """
         Description
