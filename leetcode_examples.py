@@ -162,6 +162,39 @@ class EasySolutions(object):
         r = [len(set(c)) == 1 for c in zip(*strs)] + [0]
         return strs[0][:r.index(0)] if strs else ''
 
+    def isValid_20(self, s):
+        """
+        Description
+        -----------
+        Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order. Note that an empty string is also considered valid.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     bool
+        """
+        
+        close = {'(': ')',
+                 '{': '}',
+                 '[': ']'}
+        
+        opening = ['(', '[', '{']
+        
+        queue = []
+        for i in s:
+            if i in opening:
+                queue.append(close[i])
+            if i not in opening:
+                if i not in queue:
+                    return False
+                if i != queue[-1]:
+                    return False
+                if i == queue[-1]:
+                    queue = queue[:-1]
+                    
+        if len(queue) == 0:
+            return True
+
     def removeElement_27(self, nums, val):
         """
         Description
