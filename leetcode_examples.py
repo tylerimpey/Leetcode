@@ -382,6 +382,23 @@ class EasySolutions(object):
 
         return num if num == 0 else num % 9 or 9
 
+    def isUgly_263(self, num):
+        """
+        Description
+        -----------
+        Write a program to check whether a given number is an ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     bool
+        """
+        
+        for p in 2, 3, 5:
+            while num % p == 0 < num:
+                num /= p
+        return num == 1
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
