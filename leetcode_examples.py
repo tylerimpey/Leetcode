@@ -419,11 +419,13 @@ class EasySolutions(object):
         :rtype:         int
         """
         
-        unique = list(set(nums))
-        for number in unique:
-            count = sum([1 if num == number else 0 for num in nums])
-            if count > int(len(nums)/2):
-                return number
+        # unique = list(set(nums))
+        # for number in unique:
+        #     count = sum([1 if num == number else 0 for num in nums])
+        #     if count > int(len(nums)/2):
+        #         return number
+        
+        return sorted(nums)[len(nums)/2]
 
     def containsDuplicate_217(self, nums):
         """
