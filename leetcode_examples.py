@@ -185,6 +185,17 @@ class EasySolutions(object):
             
         return len(nums)
 
+    def lengthOfLastWord_58(self, s):
+        """
+        :type s:    str
+        :rtype:     int
+        """
+        
+        s = s.strip()
+        s = s.split(' ')
+        
+        return len(s[-1])
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
