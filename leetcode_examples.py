@@ -270,8 +270,8 @@ class EasySolutions(object):
 
         Parameters
         ----------
-        :type digits: List[int]
-        :rtype: List[int]
+        :type digits:   List[int]
+        :rtype:         List[int]
         """
         
         number = ""
@@ -290,8 +290,8 @@ class EasySolutions(object):
         
         Parameters
         ----------
-        :type x: int
-        :rtype: int
+        :type x:    int
+        :rtype:     int
         """
         
         if x == 0:
@@ -322,8 +322,8 @@ class EasySolutions(object):
         
         Parameters
         ----------
-        :type nums: List[int]
-        :rtype: int
+        :type nums:     List[int]
+        :rtype:         int
         """
         
         return sum(list(set(nums)))*2 - sum(nums)
@@ -343,6 +343,24 @@ class EasySolutions(object):
         unique = list(set(nums))
 
         return len(unique) != len(nums)
+
+    def canAttendMeetings_252(self, intervals):
+        """
+        Description
+        -----------
+        Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), determine if a person could attend all meetings.
+        
+        Parameters
+        ----------
+        :type intervals: List[List[int]]
+        :rtype: bool
+        """
+        
+        intervals.sort(key=lambda x: x[0])
+        for i in range(1,len(intervals)):
+            if intervals[i-1][1] > intervals[i][0]:
+                return False
+        return True
 
     def numJewelsInStones_771(self, J, S):
         """
