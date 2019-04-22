@@ -500,6 +500,7 @@ class EasySolutions(object):
 
         return jewels
 
+
 class MediumSolutions(object):
     """
     Example
@@ -517,6 +518,7 @@ class MediumSolutions(object):
         method = getattr(MediumSolutions, problem)
 
         print(method.__doc__)
+
 
 class HardSolutions(object):
     """
