@@ -341,11 +341,8 @@ class EasySolutions(object):
         """
         
         unique = list(set(nums))
-        
-        if len(unique) == len(nums):
-            return False
-        else:
-            return True
+
+        return len(unique) != len(nums)
 
     def numJewelsInStones_771(self, J, S):
         """
