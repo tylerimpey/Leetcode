@@ -437,6 +437,35 @@ class EasySolutions(object):
         n = len(nums)
         return n * (n+1) / 2 - sum(nums)
 
+    def wordPattern_290(self, pattern, str):
+        """
+        Description
+        -----------
+        Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
+        
+        Parameters
+        ----------
+        :type pattern:  str
+        :type str:      str
+        :rtype:         bool
+        """
+        
+        unique_p = []
+        for i in pattern:
+            if i not in unique_p:
+                unique_p.append(i)
+        
+        order_p = [unique_p.index(letter) for letter in pattern]
+        
+        unique_s = []
+        for i in str.split(' '):
+            if i not in unique_s:
+                unique_s.append(i)
+        
+        order_s = [unique_s.index(word) for word in str.split(' ')]
+        
+        return order_p == order_s
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
