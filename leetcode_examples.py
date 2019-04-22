@@ -362,6 +362,24 @@ class EasySolutions(object):
                 return False
         return True
 
+    def addDigits_258(self, num):
+        """
+        Description
+        -----------
+        Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     int
+        """
+        
+        num = str(num)
+        while len(num) != 1:
+            num = str(sum([int(digit) for digit in num]))
+            
+        return int(num)
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
