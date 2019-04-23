@@ -478,6 +478,20 @@ class EasySolutions(object):
         
         return sorted(nums)[len(nums)/2]
 
+    def hammingWeight_191(self, n):
+        """
+        Description
+        -----------
+        Write a function that takes an unsigned integer and return the number of '1' bits it has (also known as the Hamming weight).
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     int
+        """
+        
+        return sum([int(digit) for digit in "{0:b}".format(n)])
+
     def containsDuplicate_217(self, nums):
         """
         Description
