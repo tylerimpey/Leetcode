@@ -1001,6 +1001,30 @@ class EasySolutions(object):
         
         return mid
 
+    def sortArrayByParity_905(self, A):
+        """
+        Description
+        -----------
+        Given an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd elements of A. You may return any answer array that satisfies this condition. 1 <= A.length <= 5000 0 <= A[i] <= 5000
+        
+        Parameters
+        ----------
+        :type A: List[int]
+        :rtype: List[int]
+        """
+        
+        left = 0
+        rite = len(A)
+        
+        while left < rite:
+            if A[left] % 2 == 0:
+                left += 1
+            else:
+                A[-1], A[:-1] = A[left], A[:left] + A[left+1:]
+                rite -= 1
+        
+        return A
+
     def numUniqueEmails_929(self, emails):
         """
         Description
