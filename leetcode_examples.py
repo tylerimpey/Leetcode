@@ -873,6 +873,28 @@ class EasySolutions(object):
         
         return result
 
+    def toLowerCase_709(self, str):
+        """
+        Description
+        -----------
+        Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+        
+        Parameters
+        ----------
+        :type str:  str
+        :rtype:     str
+        """
+        
+        result = ''
+        
+        for i in str:
+            if ord(i) < 97 and ord(i) >= 65:
+                result += chr(ord(i) + 32)
+            else:
+                result += i
+                
+        return result
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
