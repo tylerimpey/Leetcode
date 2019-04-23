@@ -925,6 +925,28 @@ class EasySolutions(object):
         
         return result
 
+    def fib_509(self, N):
+        """
+        Description
+        -----------
+        The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. Given N, calculate F(N).
+        
+        Parameters
+        ----------
+        :type N:    int
+        :rtype:     int
+        """
+        
+        if N <= 1:
+            return N
+        
+        fib = [0, 1]
+        
+        for i in range(N-1):
+            fib[0], fib[1] = fib[1], sum(fib)
+            
+        return fib[1]
+
     def arrayPairSum_561(self, nums):
         """
         Description
