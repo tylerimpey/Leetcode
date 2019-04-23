@@ -490,6 +490,13 @@ class EasySolutions(object):
         :rtype:     int
         """
         
+        count = 0 
+        while n > 0:
+            if n % 2:
+                count += 1
+            n >>= 1
+        return count
+        
         return sum([int(digit) for digit in "{0:b}".format(n)])
 
     def containsDuplicate_217(self, nums):
