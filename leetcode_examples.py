@@ -946,9 +946,7 @@ class EasySolutions(object):
         results = []
         
         for word in words:
-            temp = ''
-            for l in word:
-                temp += code[ord(l)-97]
+            temp = ''.join([code[ord(l)-97] for l in word])
             results.append(temp)
         
         return len(set(results))
