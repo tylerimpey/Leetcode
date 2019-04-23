@@ -957,6 +957,23 @@ class EasySolutions(object):
         
         return len(emails)
 
+    def removeOuterParentheses_1021(self, S):
+        """
+        :type S: str
+        :rtype: str
+        """
+        
+        result = ''
+        queue  = 0
+        for i in S:
+            if i == ')':
+                queue -= 1
+            if queue > 0:
+                result += i
+            if i == '(':
+                queue += 1
+                
+        return result
 
 class MediumSolutions(object):
     """
