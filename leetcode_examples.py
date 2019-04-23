@@ -1013,17 +1013,29 @@ class EasySolutions(object):
         :rtype: List[int]
         """
         
-        left = 0
-        rite = len(A)
+        # left = 0
+        # rite = len(A)
         
-        while left < rite:
-            if A[left] % 2 == 0:
-                left += 1
-            else:
-                A[-1], A[:-1] = A[left], A[:left] + A[left+1:]
-                rite -= 1
+        # while left < rite:
+        #     if A[left] % 2 == 0:
+        #         left += 1
+        #     else:
+        #         A[-1], A[:-1] = A[left], A[:left] + A[left+1:]
+        #         rite -= 1
         
-        return A
+        # return A
+
+        # even = []
+        # odd = []
+        # for number in A:
+        #     if number % 2 == 0:
+        #         even.append(number)
+        #     else:
+        #         odd.append(number)
+            
+        # return even+odd
+
+        return [num for num in A if num % 2 == 0] + [num for num in A if num % 2 == 1]
 
     def numUniqueEmails_929(self, emails):
         """
