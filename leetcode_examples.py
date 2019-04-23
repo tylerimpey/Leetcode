@@ -887,7 +887,9 @@ class EasySolutions(object):
         
         directions = {"U": 1, "D": -1, "L": 1j, "R": -1j}
         
-        movement = sum([directions[i] for i in moves])
+        # movement = sum([directions[i] for i in moves])
+
+        movement = sum(map(directions.get, moves))
         
         return not movement
 
