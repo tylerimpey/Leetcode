@@ -662,6 +662,32 @@ class EasySolutions(object):
 
         return n>>2<<2 != n
 
+    def reverseString_344(self, s):
+        """
+        Description
+        -----------
+        Write a function that reverses a string. The input string is given as an array of characters char[]. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+        Assumptions
+        -----------
+        You may assume all the characters consist of printable ascii characters.
+        
+        Parameters
+        ----------
+        :type s:    List[str]
+        :rtype:     None Do not return anything, modify s in-place instead.
+        """
+        
+        left = 0
+        rite = len(s)-1
+        
+        while left < rite:
+            s[left], s[rite] = s[rite], s[left]
+            left += 1
+            rite -= 1
+
+        # return s
+
     def licenseKeyFormatting_482(self, S, K):
         """
         Description
