@@ -744,6 +744,23 @@ class EasySolutions(object):
 
         return n>>2<<2 != n
 
+    def depthSum_339(self, nestedList):
+        """
+        Description
+        -----------
+        Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+        
+        Parameters
+        ----------
+        :type nestedList:   List[NestedInteger]
+        :rtype:             int
+        """
+        
+        def scanList(curr_list, depth):
+            return sum(depth * x.getInteger() if x.isInteger() else scanList(x.getList(), depth + 1) for x in curr_list)
+    
+        return scanList(nestedList, 1)
+
     def reverseString_344(self, s):
         """
         Description
@@ -920,9 +937,11 @@ class EasySolutions(object):
         :rtype: int
         """
         
-        nums = sorted(nums)
+        # nums = sorted(nums)
         
-        return sum([min([nums[i], nums[i+1]]) for i in range(0, len(nums), 2)])
+        # return sum([min([nums[i], nums[i+1]]) for i in range(0, len(nums), 2)])
+
+        return sum(sorted(nums)[::2])
 
     def judgeCircle_657(self, moves):
         """
