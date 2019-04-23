@@ -1344,6 +1344,29 @@ class MediumSolutions(object):
 
         print(method.__doc__)
 
+    def permute_46(self, nums):
+        """
+        Description
+        -----------
+        Given a collection of distinct integers, return all possible permutations.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     List[List[int]]
+        """
+        
+        n = len(nums)
+        if n <= 1: 
+            return [nums]
+        
+        result = []
+        for i in range(n):  
+            s = nums[:i] + nums[i+1:]
+            p = self.permute(s)  
+            for x in p:  
+                result.append([nums[i]] + x)  
+        return result
 
 class HardSolutions(object):
     """
