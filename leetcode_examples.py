@@ -1027,6 +1027,23 @@ class EasySolutions(object):
         
         return len(emails)
 
+    def sortedSquares_977(self, A):
+        """
+        Description
+        -----------
+        Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order. 1 <= A.length <= 10000 -10000 <= A[i] <= 10000 A is sorted in non-decreasing order.
+        
+        Parameters
+        ----------
+        :type A: List[int]
+        :rtype: List[int]
+        """
+        
+        for i in range(len(A)):
+            A[i] = A[i]**2
+            
+        return sorted(A)
+
     def removeOuterParentheses_1021(self, S):
         """
         :type S: str
