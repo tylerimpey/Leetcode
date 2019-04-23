@@ -943,6 +943,22 @@ class EasySolutions(object):
 
         return sum(sorted(nums)[::2])
 
+    def postorder_590(self, root):
+        """
+        Description
+        -----------
+        Given an n-ary tree, return the postorder traversal of its nodes' values. Recursive solution is trivial, could you do it iteratively?
+        
+        Parameters
+        ----------
+        :type root:     Node
+        :rtype:         List[int]
+        """
+        
+        # return [x for y in [self.postorder(child) for child in root.children] for x in y] + [root.val] if root else []
+
+        return 0
+
     def judgeCircle_657(self, moves):
         """
         Description
