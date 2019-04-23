@@ -950,6 +950,32 @@ class EasySolutions(object):
                 
         return result
 
+    def selfDividingNumbers_728(self, left, right):
+        """
+        Description
+        -----------
+        A self-dividing number is a number that is divisible by every digit it contains. For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0. Also, a self-dividing number is not allowed to contain the digit zero. Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible.
+        
+        Parameters
+        ----------
+        :type left:     int
+        :type right:    int
+        :rtype:         List[int]
+        """
+        
+        result = []
+        
+        for number in range(left, right+1):
+            str_form = str(number)
+            temp = 0
+            for l in str_form:
+                if (int(l) != 0) and (number % int(l) == 0):
+                    temp += 1
+            if temp == len(str_form):
+                result.append(number)
+                
+        return result
+
     def anagramMappings_760(self, A, B):
         """
         Description
