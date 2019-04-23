@@ -895,6 +895,26 @@ class EasySolutions(object):
                 
         return result
 
+    def anagramMappings_760(self, A, B):
+        """
+        Description
+        -----------
+        Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A. We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j. These lists A and B may contain duplicates. If there are multiple answers, output any of them.
+        
+        Parameters
+        ----------
+        :type A:    List[int]
+        :type B:    List[int]
+        :rtype:     List[int]
+        """
+        
+        result = []
+        
+        for i in A:
+            result.append(B.index(i))
+        
+        return result
+
     def numJewelsInStones_771(self, J, S):
         """
         Description
@@ -1062,6 +1082,26 @@ class EasySolutions(object):
         emails = list(set([starts[i] + '@' + ends[i] for i in range(len(emails))]))
         
         return len(emails)
+
+    def repeatedNTimes_961(self, A):
+        """
+        Description
+        -----------
+        In a array A of size 2N, there are N+1 unique elements, and exactly one of these elements is repeated N times. Return the element repeated N times.
+
+        Parameters
+        ----------
+        :type A:    List[int]
+        :rtype:     int
+        """
+        
+        unique = []
+        
+        for num in A:
+            if num in unique:
+                return num
+            else:
+                unique.append(num)
 
     def sortedSquares_977(self, A):
         """
