@@ -890,6 +890,30 @@ class EasySolutions(object):
 
         return jewels
 
+    def mostCommonWord_819(self, paragraph, banned):
+        """
+        Description
+        -----------
+        Given a paragraph and a list of banned words, return the most frequent word that is not in the list of banned words.  It is guaranteed there is at least one word that isn't banned, and that the answer is unique. Words in the list of banned words are given in lowercase, and free of punctuation.  Words in the paragraph are not case sensitive.  The answer is in lowercase.
+        
+        Parameters
+        ----------
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        
+        bannedset = set(banned)
+        counts = dict()
+        
+        paragraph = paragraph.replace("!", "").replace("?", "").replace("'", "").replace(", ", " ").replace(",", " ").replace(";", "").replace(".", "")
+        for W in paragraph.split(" "):
+            w = W.lower()
+            if w not in bannedset:
+                counts[w] = counts.get(w, 0) + 1
+        
+        return sorted(list(counts.items()), reverse=True, key=lambda x: x[1])[0][0]
+
     def numUniqueEmails_929(self, emails):
         """
         Description
