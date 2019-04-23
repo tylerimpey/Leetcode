@@ -840,6 +840,41 @@ class EasySolutions(object):
             
         return result
 
+    def hammingDistance_461(self, x, y):
+        """
+        Description
+        -----------
+        The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance.
+        
+        Parameters
+        ----------
+        :type x:    int
+        :type y:    int
+        :rtype:     int
+        """
+
+        # xor = x ^ y
+        # count = 0
+        # while xor > 0:
+        #     if xor & 1:
+        #         count += 1
+        #     xor = xor >> 1
+        # return count
+        
+        distance = 0
+        
+        x = '{0:b}'.format(x)
+        y = '{0:b}'.format(y)
+        
+        x = '0' * (len(y)-len(x)) + x if len(y) > len(x) else x
+        y = '0' * (len(x)-len(y)) + y if len(x) > len(y) else y
+        
+        for i, j in zip(x, y):
+            if i != j:
+                distance += 1
+        
+        return distance
+
     def licenseKeyFormatting_482(self, S, K):
         """
         Description
