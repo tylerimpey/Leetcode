@@ -975,6 +975,32 @@ class EasySolutions(object):
         
         return sorted(list(counts.items()), reverse=True, key=lambda x: x[1])[0][0]
 
+    def peakIndexInMountainArray_852(self, A):
+        """
+        Description
+        -----------
+        Let's call an array A a mountain if the following properties hold: A.length >= 3 There exists some 0 < i < A.length - 1 such that A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1] Given an array that is definitely a mountain, return any i such that A[0] < A[1] < ... A[i-1] < A[i] > A[i+1] > ... > A[A.length - 1].
+        
+        Parameters
+        ----------
+        :type A:    List[int]
+        :rtype:     int
+        """
+        
+        left = 0
+        rite = len(A)
+        mid  = len(A)/2
+        
+        while A[mid-1] >= A[mid] or A[mid+1] >= A[mid]:
+            if A[mid-1] >= A[mid]:
+                rite = mid
+                mid  = (left + rite)/2
+            if A[mid+1] >= A[mid]:
+                left = mid
+                mid  = (left + rite)/2
+        
+        return mid
+
     def numUniqueEmails_929(self, emails):
         """
         Description
