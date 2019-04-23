@@ -489,7 +489,7 @@ class EasySolutions(object):
         :type n:    int
         :rtype:     int
         """
-        
+
         count = 0 
         while n > 0:
             if n % 2:
@@ -498,6 +498,31 @@ class EasySolutions(object):
         return count
         
         return sum([int(digit) for digit in "{0:b}".format(n)])
+
+    def isHappy_202(self, n):
+        """
+        Description
+        -----------
+        Write an algorithm to determine if a number is "happy". A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     bool
+        """
+        
+        n = str(n)
+        
+        unique = [n]
+        
+        while n != '1':
+            val = sum([int(l)**2 for l in n])
+            n = str(val)
+            if n in unique:
+                return False
+            unique.append(n)
+        
+        return True
 
     def containsDuplicate_217(self, nums):
         """
@@ -514,6 +539,25 @@ class EasySolutions(object):
         unique = list(set(nums))
 
         return len(unique) != len(nums)
+
+    def isAnagram_242(self, s, t):
+        """
+        Description
+        -----------
+        Given two strings s and t , write a function to determine if t is an anagram of s. What if the inputs contain unicode characters? How would you adapt your solution to such case?
+        
+        Assumptions
+        -----------
+        You may assume the string contains only lowercase alphabets.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :type t:    str
+        :rtype:     bool
+        """
+        
+        return sorted([ord(l) for l in s]) == sorted([ord(l) for l in t])
 
     def canAttendMeetings_252(self, intervals):
         """
@@ -708,6 +752,32 @@ class EasySolutions(object):
             rite -= 1
 
         # return s
+
+    def intersection_349(self, nums1, nums2):
+        """
+        Description
+        -----------
+        Given two arrays, write a function to compute their intersection.
+        
+        Parameters
+        ----------
+        :type nums1:    List[int]
+        :type nums2:    List[int]
+        :rtype:         List[int]
+        """
+        
+        # longer  = nums1 if len(nums1) > len(nums2) else nums2
+        # shorter = nums2 if len(nums1) > len(nums2) else nums1
+        
+        # result = []
+        
+        # for i in shorter:
+        #     if i in longer and i not in result:
+        #         result.append(i)
+                
+        # return result
+
+        return list(set(nums1) & set(nums2))
 
     def licenseKeyFormatting_482(self, S, K):
         """
