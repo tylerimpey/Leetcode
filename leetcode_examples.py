@@ -779,6 +779,24 @@ class EasySolutions(object):
 
         return list(set(nums1) & set(nums2))
 
+    def firstUniqChar_387(self, s):
+        """
+        Description
+        -----------
+        Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1. Note: You may assume the string contain only lowercase letters.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     int
+        """
+
+        for i, j in enumerate(s):
+            if j not in s[:i] + s[i+1:]:
+                return i
+            
+        return -1
+
     def fizzBuzz_412(self, n):
         """
         Description
