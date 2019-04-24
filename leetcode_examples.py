@@ -1400,6 +1400,31 @@ class MediumSolutions(object):
         
         return result
 
+    def longestPalindrome_5(self, s):
+        """
+        Description
+        -----------
+        Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     str
+        """
+        
+        def expand(l, r):
+            while l >= 0 and r < N and s[l] == s[r]:
+                l, r = l-1, r+1
+            return l+1, r
+        
+        N, l, r = len(s), 0, 0
+        if N < 2 or s == s[::-1]: 
+            return s
+        
+        for i in range(N):
+            l, r = max(((l, r), expand(i,i), expand(i,i+1)), key=lambda x: x[1]-x[0])
+        return s[l:r]
+
     def permute_46(self, nums):
         """
         Description
