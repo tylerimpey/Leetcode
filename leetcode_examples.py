@@ -1437,7 +1437,24 @@ class HardSolutions(object):
 
     def run_problem(self, problem):
         problem = [func for func in self.methods if int(func.split('_')[1]) == problem][0]
-
         method = getattr(HardSolutions, problem)
-
         print(method.__doc__)
+
+    def findMedianSortedArrays_4(self, nums1, nums2):
+        """
+        Description
+        -----------
+        There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.
+        
+        Parameters
+        ----------
+        :type nums1:    List[int]
+        :type nums2:    List[int]
+        :rtype:         float
+        """
+        
+        whole = sorted(nums1 + nums2)
+        
+        n = len(whole)
+        
+        return (whole[n/2-1] + whole[n/2])/2. if n % 2 == 0 else whole[n/2]
