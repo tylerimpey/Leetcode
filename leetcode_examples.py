@@ -1590,3 +1590,5 @@ class HardSolutions(object):
             i += 1
             
         return i
+
+    
