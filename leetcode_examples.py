@@ -1488,22 +1488,22 @@ class MediumSolutions(object):
                 break
             if i > 0 and nums[i] == nums[i-1]:
                 continue
-            l, r = i+1, length-1
-            while l < r:
-                total = nums[i] + nums[l] + nums[r]
+            left, rite = i+1, length-1
+            while left < rite:
+                total = nums[i] + nums[left] + nums[rite]
                 
                 if total < 0:
-                    l+=1
+                    left += 1
                 elif total > 0:
-                    r-=1
+                    rite -= 1
                 else:
-                    result.append([nums[i], nums[l], nums[r]])
-                    while l<r and nums[l]==nums[l+1]:
-                        l+=1
-                    while l<r and nums[r]==nums[r-1]:
-                        r-=1
-                    l+=1
-                    r-=1
+                    result.append([nums[i], nums[left], nums[rite]])
+                    while left < rite and nums[left]==nums[left+1]:
+                        left += 1
+                    while left < rite and nums[rite]==nums[rite-1]:
+                        rite -= 1
+                    left += 1
+                    rite -= 1
         return result
 
     def searchRange_34(self, nums, target):
