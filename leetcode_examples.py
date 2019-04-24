@@ -1468,6 +1468,44 @@ class MediumSolutions(object):
             num %= val
         return result
 
+    def searchRange_34(self, nums, target):
+        """
+        Description
+        -----------
+        Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value. Your algorithm's runtime complexity must be in the order of O(log n). If the target is not found in the array, return [-1, -1].
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :type target:   int
+        :rtype:         List[int]
+        """
+        
+        length = len(nums)
+        if length == 0 or target < nums[0] or target > nums[-1]:
+            return [-1, -1]
+        
+        left, rite = 0, length-1
+        while left < rite:
+            mid = (left + rite)/2
+            if nums[mid] >= target:
+                rite = mid
+            else:
+                left = mid + 1
+        
+        if nums[left] != target:
+            return [-1, -1]
+        
+        k, rite = left, length-1
+        while k+1 < rite:
+            mid = (k + rite)/2
+            if nums[mid] == target:
+                k = mid
+            else:
+                rite = mid - 1
+        
+        return [left, k+1] if (k+1 < length) and (nums[k+1] == target) else [left, k]
+
     def permute_46(self, nums):
         """
         Description
