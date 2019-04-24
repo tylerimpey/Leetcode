@@ -480,6 +480,23 @@ class EasySolutions(object):
                 pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j]
         return pascal
 
+    def getRow_119(self, rowIndex):
+        """
+        Description
+        -----------
+        Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle. Note that the row index starts from 0.
+        
+        Parameters
+        ----------
+        :type rowIndex: int
+        :rtype:         List[int]
+        """
+        
+        result = [1]
+        for i in range(rowIndex):
+            result.append(result[i]*(rowIndex-i)/(i+1))
+        return result
+
     def maxProfit_121(self, prices):
         """
         Description
