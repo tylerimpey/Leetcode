@@ -563,6 +563,25 @@ class EasySolutions(object):
         
         return sorted(nums)[len(nums)/2]
 
+    def titleToNumber_171(self, s):
+        """
+        Description
+        -----------
+        Given a column title as appear in an Excel sheet, return its corresponding column number.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     int
+        """
+        
+        # result = 0
+        # for i, j in enumerate(s[::-1]):
+        #     result += (26**i)*(ord(j) - ord('A') + 1)
+        # return result
+
+        return sum([(26**i)*(ord(j)-ord('A')+1) for i,j in enumerate(s[::-1])])
+
     def trailingZeroes_172(self, n):
         """
         Description
