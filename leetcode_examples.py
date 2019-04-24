@@ -461,6 +461,21 @@ class EasySolutions(object):
             result, buy = max(result, p-buy), min(buy, p)
         return result
 
+    def isPalindrome_125(self, s):
+        """
+        Description
+        -----------
+        Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. Note: For the purpose of this problem, we define empty string as valid palindrome.
+
+        Parameters
+        ----------
+        :type s: str
+        :rtype: bool
+        """
+        
+        s = re.sub(r'\W', '', s).upper()
+        return s == s[::-1]
+
     def singleNumber_136(self, nums):
         """
         Description
