@@ -473,9 +473,7 @@ class EasySolutions(object):
         :rtype: bool
         """
 
-        import re
-        
-        s = re.sub(r'\W', '', s).upper()
+        s = [l.lower() for l in s if l.isalnum()]
         return s == s[::-1]
 
     def singleNumber_136(self, nums):
