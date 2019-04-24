@@ -1373,6 +1373,33 @@ class MediumSolutions(object):
 
         return 0
 
+    def lengthOfLongestSubstring_3(self, s):
+        """
+        Description
+        -----------
+        Given a string, find the length of the longest substring without repeating characters.
+        
+        Parameters
+        ----------
+        :type s: str
+        :rtype: int
+        """
+        
+        if len(s) == 0:
+            return 0
+        
+        temp = s[0]
+        result = 1
+        for letter in s[1:]:
+            if letter in temp:
+                i = temp.find(letter)
+                temp = temp[i+1:]
+            temp += letter
+            if len(temp) > result:
+                result = len(temp)
+        
+        return result
+
     def permute_46(self, nums):
         """
         Description
