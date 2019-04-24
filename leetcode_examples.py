@@ -942,7 +942,7 @@ class EasySolutions(object):
         
         fib = [0, 1]
         
-        for i in range(N-1):
+        for _ in range(N-1):
             fib[0], fib[1] = fib[1], sum(fib)
             
         return fib[1]
@@ -1419,7 +1419,7 @@ class MediumSolutions(object):
         result = []
         for i in range(n):  
             s = nums[:i] + nums[i+1:]
-            p = self.permute(s)  
+            p = self.permute_46(s)  
             for x in p:  
                 result.append([nums[i]] + x)  
         return result
