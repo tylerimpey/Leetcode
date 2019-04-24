@@ -1565,4 +1565,28 @@ class HardSolutions(object):
         
         return (whole[n/2-1] + whole[n/2])/2. if n % 2 == 0 else whole[n/2]
 
-
+    def firstMissingPositive_41(self, nums):
+        """
+        Description
+        -----------
+        Given an unsorted integer array, find the smallest missing positive integer.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     int
+        """
+        
+        nums = sorted([num for num in nums if num > 0])
+        
+        if len(nums) <= 1:
+            if nums == [] or nums[0] != 1:
+                return 1
+            else:
+                return 2
+        
+        i = 1
+        while i in nums:
+            i += 1
+            
+        return i
