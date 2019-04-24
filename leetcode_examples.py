@@ -1344,6 +1344,35 @@ class MediumSolutions(object):
 
         print(method.__doc__)
 
+    def addTwoNumbers_2(self, l1, l2):
+        """
+        Description
+        -----------
+        You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+        
+        Parameters
+        ----------
+        :type l1:   ListNode
+        :type l2:   ListNode
+        :rtype:     ListNode
+        """
+        
+        # dummy = current = ListNode(0)
+        # remainder = 0
+        # while l1 or l2 or remainder:
+        #     if l1:
+        #         remainder += l1.val
+        #         l1 = l1.next
+        #     if l2:
+        #         remainder += l2.val
+        #         l2 = l2.next
+        #     current.next = ListNode(remainder % 10)
+        #     current = current.next
+        #     remainder //= 10
+        # return dummy.next
+
+        return 0
+
     def permute_46(self, nums):
         """
         Description
