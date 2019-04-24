@@ -472,6 +472,8 @@ class EasySolutions(object):
         :type s: str
         :rtype: bool
         """
+
+        import re
         
         s = re.sub(r'\W', '', s).upper()
         return s == s[::-1]
