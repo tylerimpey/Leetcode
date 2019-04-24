@@ -1506,6 +1506,33 @@ class MediumSolutions(object):
                     rite -= 1
         return result
 
+    def letterCombinations_17(self, digits):
+        """
+        Description
+        -----------
+        Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+        
+        Parameters
+        ----------
+        :type digits: str
+        :rtype: List[str]
+        """
+        
+        n = len(digits)
+        translate = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
+        
+        if n == 1:
+            return list(translate[int(digits)-2])
+        elif n == 0:
+            return []
+        
+        result = []
+        for i in list(translate[int(digits[0])-2]):
+            for j in self.letterCombinations(digits[1:]):
+                result.append(i + j)
+
+        return result
+
     def searchRange_34(self, nums, target):
         """
         Description
