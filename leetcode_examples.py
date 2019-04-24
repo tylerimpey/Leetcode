@@ -495,6 +495,27 @@ class EasySolutions(object):
         
         return sorted(nums)[len(nums)/2]
 
+    def trailingZeroes_172(self, n):
+        """
+        Description
+        -----------
+        Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     int
+        """
+        
+        if n < 5:
+            return 0
+        x = 0
+        while n != 0:
+            x += n // 5
+            n //= 5
+            
+        return x
+
     def hammingWeight_191(self, n):
         """
         Description
@@ -1528,7 +1549,7 @@ class MediumSolutions(object):
         
         result = []
         for i in list(translate[int(digits[0])-2]):
-            for j in self.letterCombinations(digits[1:]):
+            for j in self.letterCombinations_17(digits[1:]):
                 result.append(i + j)
 
         return result
