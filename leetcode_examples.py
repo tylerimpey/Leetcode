@@ -456,23 +456,29 @@ class EasySolutions(object):
         :rtype: List[List[int]]
         """
         
-        if numRows == 0:
-            return []
-        elif numRows == 1:
-            return [[1]]
+        # if numRows == 0:
+        #     return []
+        # elif numRows == 1:
+        #     return [[1]]
         
-        temp = [[1]]
+        # temp = [[1]]
         
-        for _ in range(numRows-1):
-            row = []
-            for j in range(len(temp[-1])+1):
-                if j == 0 or j == len(temp[-1]):
-                    row.append(1)
-                else:
-                    row.append(temp[-1][j-1] + temp[-1][j])
-            temp.append(row)
+        # for _ in range(numRows-1):
+        #     row = []
+        #     for j in range(len(temp[-1])+1):
+        #         if j == 0 or j == len(temp[-1]):
+        #             row.append(1)
+        #         else:
+        #             row.append(temp[-1][j-1] + temp[-1][j])
+        #     temp.append(row)
             
-        return temp
+        # return temp
+
+        pascal = [[1]*(i+1) for i in range(numRows)]
+        for i in range(numRows):
+            for j in range(1,i):
+                pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j]
+        return pascal
 
     def maxProfit_121(self, prices):
         """
