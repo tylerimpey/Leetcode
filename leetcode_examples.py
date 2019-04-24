@@ -1506,6 +1506,21 @@ class MediumSolutions(object):
         
         return [left, k+1] if (k+1 < length) and (nums[k+1] == target) else [left, k]
 
+    def multiply_43(self, num1, num2):
+        """
+        Description
+        -----------
+        Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+        
+        Parameters
+        ----------
+        :type num1: str
+        :type num2: str
+        :rtype:     str
+        """
+        
+        return str(int(num1) * int(num2))
+
     def permute_46(self, nums):
         """
         Description
@@ -1591,4 +1606,4 @@ class HardSolutions(object):
             
         return i
 
-    
+
