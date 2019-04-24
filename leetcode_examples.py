@@ -444,6 +444,36 @@ class EasySolutions(object):
         
         return fib
 
+    def generate_118(self, numRows):
+        """
+        Description
+        -----------
+        Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
+        
+        Parameters
+        ----------
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        
+        if numRows == 0:
+            return []
+        elif numRows == 1:
+            return [[1]]
+        
+        temp = [[1]]
+        
+        for _ in range(numRows-1):
+            row = []
+            for j in range(len(temp[-1])+1):
+                if j == 0 or j == len(temp[-1]):
+                    row.append(1)
+                else:
+                    row.append(temp[-1][j-1] + temp[-1][j])
+            temp.append(row)
+            
+        return temp
+
     def maxProfit_121(self, prices):
         """
         Description
