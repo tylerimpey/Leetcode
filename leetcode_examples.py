@@ -1823,6 +1823,31 @@ class MediumSolutions(object):
                 out += i,
         return out
 
+    def searchMatrix_74(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        
+        if not matrix or target is None:
+            return False
+
+        rows, cols = len(matrix), len(matrix[0])
+        left, rite = 0, rows*cols - 1
+        
+        while left <= rite:
+            mid = (left + rite)/2
+            num = matrix[mid/cols][mid%cols]
+
+            if num == target:
+                return True
+            elif num < target:
+                left = mid + 1
+            else:
+                rite = mid - 1
+        
+        return False
 
 class HardSolutions(object):
     """
