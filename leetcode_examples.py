@@ -2236,11 +2236,18 @@ class SQLSolutions(object):
 
     def easy_notBoringMovies_620(self):
 
-        # SELECT *
-        # FROM cinema
-        # WHERE MOD(id, 2) = 1 AND description != 'boring'
-        # ORDER BY rating DESC
+        # SELECT    *
+        # FROM      cinema
+        # WHERE     MOD(id, 2) = 1 AND description != 'boring'
+        # ORDER BY  rating DESC
 
         return 0
 
-    
+    def easy_swapSalary_627(self):
+
+        # UPDATE  salary
+        # SET     sex = CASE
+        # WHEN    sex = 'm' THEN 'f' WHEN sex = 'f' THEN 'm'
+        # END
+
+        return 0
