@@ -1584,6 +1584,38 @@ class EasySolutions(object):
         
         return len(emails)
 
+    def validMountainArray_941(self, A):
+        """
+        Description
+        -----------
+        Given an array A of integers, return true if and only if it is a valid mountain array. Recall that A is a mountain array if and only if: A.length >= 3 There exists some i with 0 < i < A.length - 1 such that: A[0] < A[1] < ... A[i-1] < A[i] A[i] > A[i+1] > ... > A[B.length - 1]
+        
+        Parameters
+        ----------
+        :type A: List[int]
+        :rtype: bool
+        """
+        
+        left = 0
+        rite = len(A)-1
+        
+        l_prev = left
+        r_prev = rite
+        while left < rite:
+            l_prev = left
+            r_prev = rite
+            if A[left+1] > A[left]:
+                left += 1
+            if A[rite-1] > A[rite]:
+                rite -= 1
+            if l_prev == left and r_prev == rite:
+                return False
+            
+        if rite == len(A)-1 or left == 0:
+            return False
+        
+        return True
+
     def minDeletionSize_944(self, A):
         """
         Description
