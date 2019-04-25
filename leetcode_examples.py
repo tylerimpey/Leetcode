@@ -1253,7 +1253,7 @@ class EasySolutions(object):
         :rtype:     str
         """
         
-        return ' '.join([w[::-1] for w in s.split(' ')])
+        return ' '.join(w[::-1] for w in s.split())
 
     def arrayPairSum_561(self, nums):
         """
