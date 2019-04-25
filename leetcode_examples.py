@@ -1057,6 +1057,31 @@ class EasySolutions(object):
 
         return list(set(nums1) & set(nums2))
 
+    def intersect_350(self, nums1, nums2):
+        """
+        Description
+        -----------
+        Given two arrays, write a function to compute their intersection. Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1's size is small compared to nums2's size? Which algorithm is better? What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+        
+        Parameters
+        ----------
+        :type nums1:    List[int]
+        :type nums2:    List[int]
+        :rtype:         List[int]
+        """
+        
+        shortr = nums1 if len(nums1) < len(nums2) else nums2
+        longer = nums2 if len(nums1) < len(nums2) else nums1
+        
+        result = []
+        
+        for num in shortr:
+            if num in longer:
+                result.append(num)
+                longer.pop(longer.index(num))
+                
+        return result
+
     def firstUniqChar_387(self, s):
         """
         Description
