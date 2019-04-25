@@ -2188,6 +2188,23 @@ class MediumSolutions(object):
         
         return False
 
+    def kClosest_973(self, points, K):
+        """
+        Description
+        -----------
+        We have a list of points on the plane.  Find the K closest points to the origin (0, 0). (Here, the distance between two points on a plane is the Euclidean distance.) You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
+
+        Parameters
+        ----------
+        :type points:   List[List[int]]
+        :type K:        int
+        :rtype:         List[List[int]]
+        """
+        
+        distances = [sum(j**2 for j in i) for i in points]
+        
+        return [x for _,x in sorted(zip(distances,points))][:K]
+
 
 class HardSolutions(object):
     """
