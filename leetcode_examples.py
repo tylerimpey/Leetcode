@@ -2191,3 +2191,16 @@ class HardSolutions(object):
         return i
 
 
+class SQLSolutions(object):
+    """
+    Example
+    -------
+    sql = SQLSolutions
+
+    Notes
+    -----
+    All answers are simply described by commented chunks.
+    """
+
+    
+
