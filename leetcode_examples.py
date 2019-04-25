@@ -1500,6 +1500,7 @@ class EasySolutions(object):
                 
         return result
 
+
 class MediumSolutions(object):
     """
     Example
@@ -1803,6 +1804,7 @@ class MediumSolutions(object):
             else:
                 out += i,
         return out
+
 
 class HardSolutions(object):
     """
