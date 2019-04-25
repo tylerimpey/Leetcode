@@ -2,7 +2,7 @@
 """
 Copyright © Tyler Impey 2019
 
-The following program houses Leetcode questions, four sections exist:
+The following program houses Leetcode question solutions, four sections exist:
     • Solutions to Easy Questions
     • Solutions to Medium Questions
     • Solutions to Hard Questions
