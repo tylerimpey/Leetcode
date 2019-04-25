@@ -1009,7 +1009,7 @@ class EasySolutions(object):
         :rtype:     str
         """
         
-        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        vowels = set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
         
         s = list(s)
         
