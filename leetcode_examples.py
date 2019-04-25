@@ -930,13 +930,15 @@ class EasySolutions(object):
         :rtype:     bool
         """
         
-        if n <= 0:
-            return False
+        # if n <= 0:
+        #     return False
         
-        while n > 1:
-            n /= 3.
+        # while n > 1:
+        #     n /= 3.
 
-        return int(n)
+        # return int(n)
+
+        return n > 0 and 1162261467 % n == 0
 
     def depthSum_339(self, nestedList):
         """
@@ -954,6 +956,20 @@ class EasySolutions(object):
             return sum(depth * x.getInteger() if x.isInteger() else scanList(x.getList(), depth + 1) for x in curr_list)
     
         return scanList(nestedList, 1)
+
+    def isPowerOfFour_342(self, num):
+        """
+        Description
+        -----------
+        Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     bool
+        """
+        
+        return num > 0 and num & (num-1) == 0 and len(bin(num)[3:]) % 2 == 0
 
     def reverseString_344(self, s):
         """
