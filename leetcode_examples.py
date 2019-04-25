@@ -616,12 +616,14 @@ class EasySolutions(object):
         :rtype: None Do not return anything, modify nums in-place instead.
         """
         
-        n = len(nums)
-        if any((n == 1, k == 0, k == n)):
-            return nums
+        # n = len(nums)
+        # if any((n == 1, k == 0, k == n)):
+        #     return nums
         
-        r = k % n
-        nums[:r], nums[r:] = nums[-r:], nums[:-r]
+        # r = k % n
+        # nums[:r], nums[r:] = nums[-r:], nums[:-r]
+
+        nums[:k], nums[k:] = nums[len(nums)-k:len(nums)], nums[:len(nums)-k]
 
     def hammingWeight_191(self, n):
         """
