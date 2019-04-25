@@ -2251,3 +2251,12 @@ class SQLSolutions(object):
         # END
 
         return 0
+
+    def easy_combineTwoTables_175(self):
+
+        # SELECT      FirstName, LastName, City, State
+        # FROM        Person 
+        # LEFT JOIN   Address USING (PersonId)
+
+        return 0
+        
