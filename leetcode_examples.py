@@ -1785,6 +1785,24 @@ class MediumSolutions(object):
                 result.append([nums[i]] + x)  
         return result
 
+    def rotate_48(self, matrix):
+        """
+        Description
+        -----------
+        You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise). Note: You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+        
+        Parameters
+        ----------
+        :type matrix:   List[List[int]]
+        :rtype:         None Do not return anything, modify matrix in-place instead.
+        """
+        
+        n = len(matrix)
+        matrix.reverse()
+        for i in range(n):
+            for j in range(i+1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
     def merge_56(self, intervals):
         """
         Description
