@@ -2202,11 +2202,19 @@ class SQLSolutions(object):
     All answers are simply described by commented chunks.
     """
 
-    def bigCountries_595(self):
+    def easy_bigCountries_595(self):
 
-        # SELECT name, population, area
-        # FROM World
-        # WHERE area > 3000000 OR population > 25000000
+        # SELECT    name, population, area
+        # FROM      World
+        # WHERE     area > 3000000 OR population > 25000000
+
+        return 0
+
+    def easy_shortestDistance_613(self):
+
+        # SELECT  min(abs(p1.x-p2.x)) AS shortest
+        # FROM    point p1, point p2
+        # WHERE   p1.x!=p2.x
 
         return 0
 
