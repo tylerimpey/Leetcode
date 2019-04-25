@@ -918,6 +918,26 @@ class EasySolutions(object):
 
         return n>>2<<2 != n
 
+    def generatePossibleNextMoves_293(self, s):
+        """
+        Description
+        -----------
+        You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to compute all possible states of the string after one valid move.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     List[str]
+        """
+        
+        results = []
+        
+        for i in range(len(s)-1):
+            if s[i] == '+' and s[i+1] == '+':
+                results.append(s[:i] + '--' + s[i+2:])
+                
+        return results
+
     def isPowerOfThree_326(self, n):
         """
         Description
@@ -2259,4 +2279,3 @@ class SQLSolutions(object):
         # LEFT JOIN   Address USING (PersonId)
 
         return 0
-        
