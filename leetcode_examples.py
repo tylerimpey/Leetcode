@@ -997,6 +997,40 @@ class EasySolutions(object):
 
         # return s
 
+    def reverseVowels_345(self, s):
+        """
+        Description
+        -----------
+        Write a function that takes a string as input and reverse only the vowels of a string.
+        
+        Parameters
+        ----------
+        :type s:    str
+        :rtype:     str
+        """
+        
+        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        
+        s = list(s)
+        
+        left = 0
+        rite = len(s)-1
+        
+        while left < rite:
+            if s[left] in vowels and s[rite] in vowels:
+                s[left], s[rite] = s[rite], s[left]
+                left += 1
+                rite -= 1
+            elif s[left] in vowels:
+                rite -= 1
+            elif s[rite] in vowels:
+                left += 1
+            else:
+                left += 1
+                rite -= 1
+                
+        return ''.join(s)
+
     def intersection_349(self, nums1, nums2):
         """
         Description
