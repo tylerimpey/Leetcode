@@ -1113,10 +1113,17 @@ class EasySolutions(object):
         :rtype:     str
         """
         
-        sum_s = sum([ord(i) for i in s])
-        sum_t = sum([ord(i) for i in t])
+        # sum_s = sum([ord(i) for i in s])
+        # sum_t = sum([ord(i) for i in t])
         
-        return chr(sum_t - sum_s)
+        # return chr(sum_t - sum_s)
+
+        while len(t)-len(s)==1 and len(s)>0:
+            ss=s[0]
+            s=s.replace(ss,'')
+            t=t.replace(ss,'')
+
+        return ss if len(t) == len(s) else t
 
     def fizzBuzz_412(self, n):
         """
