@@ -543,6 +543,31 @@ class EasySolutions(object):
         
         return sum(list(set(nums)))*2 - sum(nums)
 
+    def twoSum_167(self, numbers, target):
+        """
+        Description
+        -----------
+        Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Note: Your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution and you may not use the same element twice.
+
+        Parameters
+        ----------
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        
+        left = 0
+        rite = len(numbers) - 1
+        while rite > left:
+            if numbers[left] + numbers[rite] < target:
+                left += 1
+            elif numbers[left] + numbers[rite] > target:
+                rite -= 1
+            elif numbers[left] + numbers[rite] == target:
+                return [left + 1, rite + 1]
+        else:
+            return None
+
     def majorityElement_169(self, nums):
         """
         Description
@@ -624,6 +649,23 @@ class EasySolutions(object):
         # nums[:r], nums[r:] = nums[-r:], nums[:-r]
 
         nums[:k], nums[k:] = nums[len(nums)-k:len(nums)], nums[:len(nums)-k]
+
+    def reverseBits_190(self, n):
+        """
+        Description
+        -----------
+        Reverse bits of a given 32 bits unsigned integer.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     int
+        """
+        
+        b_form = '{0:b}'.format(n)
+        b_form = '0'*(32-len(b_form)) + b_form
+        
+        return int(b_form[::-1], 2)
 
     def hammingWeight_191(self, n):
         """
