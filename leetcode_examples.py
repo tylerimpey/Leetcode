@@ -1219,6 +1219,31 @@ class EasySolutions(object):
         
         return result
 
+    def findMaxConsecutiveOnes_485(self, nums):
+        """
+        Description
+        -----------
+        Given a binary array, find the maximum number of consecutive 1s in this array. Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000.
+        
+        Parameters
+        ----------
+        :type nums:     List[int]
+        :rtype:         int
+        """
+        
+        result = 0
+        i = 0
+        while i < len(nums):
+            temp = 0
+            while i < len(nums) and nums[i] == 1:
+                temp += 1
+                i += 1
+            if temp > result:
+                result = temp
+            i += 1
+        
+        return result
+
     def fib_509(self, N):
         """
         Description
