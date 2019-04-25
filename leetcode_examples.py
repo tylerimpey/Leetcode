@@ -1731,6 +1731,22 @@ class EasySolutions(object):
             
         return sorted(A)
 
+    def bitwiseComplement_1009(self, N):
+        """
+        Description
+        -----------
+        Every non-negative integer N has a binary representation.  For example, 5 can be represented as "101" in binary, 11 as "1011" in binary, and so on.  Note that except for N = 0, there are no leading zeroes in any binary representation. The complement of a binary representation is the number in binary you get when changing every 1 to a 0 and 0 to a 1.  For example, the complement of "101" in binary is "010" in binary. For a given number N in base-10, return the complement of it's binary representation as a base-10 integer.
+        
+        Parameters
+        ----------
+        :type N:    int
+        :rtype:     int
+        """
+            
+        result = [str(abs(int(i)-1)) for i in '{0:b}'.format(N)]
+            
+        return int(''.join(result), 2)
+
     def removeOuterParentheses_1021(self, S):
         """
         :type S: str
@@ -2212,9 +2228,9 @@ class SQLSolutions(object):
 
     def easy_shortestDistance_613(self):
 
-        # SELECT  min(abs(p1.x-p2.x)) AS shortest
+        # SELECT  min(abs(p1.x - p2.x)) AS shortest
         # FROM    point p1, point p2
-        # WHERE   p1.x!=p2.x
+        # WHERE   p1.x != p2.x
 
         return 0
 
