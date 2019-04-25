@@ -603,6 +603,26 @@ class EasySolutions(object):
             
         return x
 
+    def rotate_189(self, nums, k):
+        """
+        Description
+        -----------
+        Given an array, rotate the array to the right by k steps, where k is non-negative.
+        
+        Parameters 
+        ----------
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        
+        n = len(nums)
+        if any((n == 1, k == 0, k == n)):
+            return nums
+        
+        r = k % n
+        nums[:r], nums[r:] = nums[-r:], nums[:-r]
+
     def hammingWeight_191(self, n):
         """
         Description
