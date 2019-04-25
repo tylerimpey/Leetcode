@@ -2234,4 +2234,13 @@ class SQLSolutions(object):
 
         return 0
 
+    def easy_notBoringMovies_620(self):
+
+        # SELECT *
+        # FROM cinema
+        # WHERE MOD(id, 2) = 1 AND description != 'boring'
+        # ORDER BY rating DESC
+
+        return 0
+
     
