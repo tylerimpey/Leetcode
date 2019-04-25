@@ -918,6 +918,26 @@ class EasySolutions(object):
 
         return n>>2<<2 != n
 
+    def isPowerOfThree_326(self, n):
+        """
+        Description
+        -----------
+        Given an integer, write a function to determine if it is a power of three.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     bool
+        """
+        
+        if n <= 0:
+            return False
+        
+        while n > 1:
+            n /= 3.
+
+        return int(n)
+
     def depthSum_339(self, nestedList):
         """
         Description
@@ -1878,6 +1898,7 @@ class MediumSolutions(object):
                 rite = mid - 1
         
         return False
+
 
 class HardSolutions(object):
     """
