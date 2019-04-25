@@ -662,10 +662,12 @@ class EasySolutions(object):
         :rtype:     int
         """
         
-        b_form = '{0:b}'.format(n)
-        b_form = '0'*(32-len(b_form)) + b_form
+        # b_form = '{0:b}'.format(n)
+        # b_form = '0'*(32-len(b_form)) + b_form
         
-        return int(b_form[::-1], 2)
+        # return int(b_form[::-1], 2)
+
+        return int('{0:032b}'.format(n)[::-1],2)
 
     def hammingWeight_191(self, n):
         """
