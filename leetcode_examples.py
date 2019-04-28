@@ -1216,6 +1216,29 @@ class EasySolutions(object):
         
         return distance
 
+    def findComplement_476(self, num):
+        """
+        Description
+        -----------
+        Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation. Note: The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     int
+        """
+        
+        # binary = '{0:b}'.format(num)
+        
+        # result = ''
+        
+        # for i in binary:
+        #     result += str(abs(int(i)-1))
+            
+        # return int(result, 2)
+
+        return -num - 1 + 2**int(math.log(num, 2)+1)
+
     def licenseKeyFormatting_482(self, S, K):
         """
         Description
@@ -1363,6 +1386,32 @@ class EasySolutions(object):
         movement = sum(map(directions.get, moves))
         
         return not movement
+
+    def calPoints_682(self, ops):
+        """
+        Description
+        -----------
+        You're now a baseball game point recorder. Given a list of strings, each string can be one of the 4 following types: Integer (one round's score): Directly represents the number of points you get in this round. "+" (one round's score): Represents that the points you get in this round are the sum of the last two valid round's points. "D" (one round's score): Represents that the points you get in this round are the doubled data of the last valid round's points. "C" (an operation, which isn't a round's score): Represents the last valid round's points you get were invalid and should be removed. Each round's operation is permanent and could have an impact on the round before and the round after. You need to return the sum of the points you could get in all the rounds.
+        
+        Parameters
+        ----------
+        :type ops:  List[str]
+        :rtype:     int
+        """
+        
+        result = []
+        
+        for i in ops:
+            if i == 'C':
+                result.pop()
+            elif i == 'D':
+                result.append(2*result[-1])
+            elif i == '+':
+                result.append(sum(result[-2:]))
+            else:
+                result.append(int(i))
+                
+        return sum(result)
 
     def toLowerCase_709(self, str):
         """
@@ -1542,6 +1591,32 @@ class EasySolutions(object):
         
         return sorted(list(counts.items()), reverse=True, key=lambda x: x[1])[0][0]
 
+    def toGoatLatin_824(self, S):
+        """
+        Description
+        -----------
+        A sentence S is given, composed of words separated by spaces. Each word consists of lowercase and uppercase letters only. We would like to convert the sentence to "Goat Latin" (a made-up language similar to Pig Latin.) The rules of Goat Latin are as follows: If a word begins with a vowel (a, e, i, o, or u), append "ma" to the end of the word. For example, the word 'apple' becomes 'applema'. If a word begins with a consonant (i.e. not a vowel), remove the first letter and append it to the end, then add "ma". For example, the word "goat" becomes "oatgma". Add one letter 'a' to the end of each word per its word index in the sentence, starting with 1. For example, the first word gets "a" added to the end, the second word gets "aa" added to the end and so on. Return the final sentence representing the conversion from S to Goat Latin. 
+        
+        Parameters
+        ----------
+        :type S:    str
+        :rtype:     str
+        """
+        
+        S = S.split()
+        
+        vowels = 'aeiou'
+        
+        result = []
+        for i, word in enumerate(S):
+            temp = 'ma' + 'a'*(i+1)
+            if word[0].lower() in vowels:
+                result.append(word + temp)
+            else:
+                result.append(word[1:] + word[0] + temp)
+            
+        return ' '.join(result)
+
     def flipAndInvertImage_832(self, A):
         """
         Description
@@ -1581,6 +1656,22 @@ class EasySolutions(object):
                 mid  = (left + rite)/2
         
         return mid
+
+    def transpose_867(self, A):
+        """
+        Description
+        -----------
+        Given a matrix A, return the transpose of A. The transpose of a matrix is the matrix flipped over it's main diagonal, switching the row and column indices of the matrix.
+        
+        Parameters
+        ----------
+        :type A:    List[List[int]]
+        :rtype:     List[List[int]]
+        """
+            
+        # return [[k[i] for k in A] for i in range(len(A[0]))]
+
+        return [i for i in zip(*A)]
 
     def sortArrayByParity_905(self, A):
         """
