@@ -1704,6 +1704,35 @@ class EasySolutions(object):
         
         return True
 
+    def diStringMatch_942(self, S):
+        """
+        Description
+        -----------
+        Given a string S that only contains "I" (increase) or "D" (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == "I", then A[i] < A[i+1] If S[i] == "D", then A[i] > A[i+1]
+        
+        Parameters
+        ----------
+        :type S:    str
+        :rtype:     List[int]
+        """
+    
+        result = []
+        
+        left = 0
+        rite = len(S)
+        
+        for l in S:
+            if l == 'I':
+                result.append(left)
+                left += 1
+            else:
+                result.append(rite)
+                rite -= 1
+                
+        result.append(rite)
+            
+        return result
+
     def minDeletionSize_944(self, A):
         """
         Description
@@ -2267,6 +2296,39 @@ class HardSolutions(object):
             
         return i
 
+    def streamChecker_1032(self, words):
+        """
+        Description
+        -----------
+        Implement the StreamChecker class as follows: StreamChecker(words): Constructor, init the data structure with the given words.
+
+        
+        Parameters
+        ----------
+        :type words: List[str]
+        """
+
+        import collections
+        
+        self.s = ''
+        self.dic = collections.defaultdict(set)
+        for w in words:
+            self.dic[w[-1]].add(w)
+
+    def streamChecker_query(self, letter):
+        """
+        Description
+        -----------
+        query(letter): returns true if and only if for some k >= 1, the last k characters queried (in order from oldest to newest, including this letter just queried) spell one of the words in the given list.
+        
+        Parameters
+        ----------
+        :type letter:   str
+        :rtype:         bool
+        """
+        
+        self.s += letter
+        return any(self.s.endswith(w) for w in self.dic[letter])
 
 class SQLSolutions(object):
     """
@@ -2320,3 +2382,5 @@ class SQLSolutions(object):
         # LEFT JOIN   Address USING (PersonId)
 
         return 0
+
+    
