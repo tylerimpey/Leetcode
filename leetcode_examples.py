@@ -1237,6 +1237,8 @@ class EasySolutions(object):
             
         # return int(result, 2)
 
+        import math
+
         return -num - 1 + 2**int(math.log(num, 2)+1)
 
     def licenseKeyFormatting_482(self, S, K):
@@ -1881,6 +1883,34 @@ class EasySolutions(object):
             
         return sorted(A)
 
+    def sumEvenAfterQueries_985(self, A, queries):
+        """
+        Description
+        -----------
+        We have an array A of integers, and an array queries of queries. For the i-th query val = queries[i][0], index = queries[i][1], we add val to A[index].  Then, the answer to the i-th query is the sum of the even values of A. (Here, the given index = queries[i][1] is a 0-based index, and each query permanently modifies the array A.) Return the answer to all queries.  Your answer array should have answer[i] as the answer to the i-th query.
+        
+        Parameters
+        ----------
+        :type A:        List[int]
+        :type queries:  List[List[int]]
+        :rtype:         List[int]
+        """
+        
+        result = []
+
+        even_sum = sum(i for i in A if i % 2 == 0)
+        
+        for value, i in queries:
+            if A[i] % 2 == 0: 
+                even_sum -= A[i]
+            A[i] += value
+            
+            if A[i] % 2 == 0: 
+                even_sum += A[i]
+            result.append(even_sum)
+            
+        return result
+
     def bitwiseComplement_1009(self, N):
         """
         Description
@@ -1896,6 +1926,44 @@ class EasySolutions(object):
         result = [str(abs(int(i)-1)) for i in '{0:b}'.format(N)]
             
         return int(''.join(result), 2)
+
+    def numPairsDivisibleBy60_1010(self, time):
+        """
+        Description
+        -----------
+        In a list of songs, the i-th song has a duration of time[i] seconds. Return the number of pairs of songs for which their total duration in seconds is divisible by 60.  Formally, we want the number of indices i < j with (time[i] + time[j]) % 60 == 0.
+        
+        Parameters
+        ----------
+        :type time: List[int]
+        :rtype:     int
+        """
+        
+        result = [0] * 61
+        for t in time:
+            result[-1] += result[(60 - t % 60) % 60]
+            result[t % 60] += 1
+            
+        return result[-1]
+
+    def canThreePartsEqualSum_1013(self, A):
+        """
+        :type A: List[int]
+        :rtype: bool
+        """
+        
+        partition_sum = sum(A)/3
+        
+        summation = 0
+        sections  = 0
+        
+        for i in A:
+            summation += i
+            if summation == partition_sum:
+                sections += 1
+                summation = 0
+                
+        return sections == 3
 
     def removeOuterParentheses_1021(self, S):
         """
