@@ -2489,6 +2489,7 @@ class HardSolutions(object):
         self.s += letter
         return any(self.s.endswith(w) for w in self.dic[letter])
 
+
 class SQLSolutions(object):
     """
     Example
