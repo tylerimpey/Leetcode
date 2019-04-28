@@ -1321,6 +1321,33 @@ class EasySolutions(object):
             
         return fib[1]
 
+    def singleNonDuplicate_540(self, nums):
+        """
+        Description
+        -----------
+        Given a sorted array consisting of only integers where every element appears twice except for one element which appears once. Find this single element that appears only once.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     int
+        """
+        
+        # left, rite = 0, len(nums) - 1
+        
+        # while left < rite:
+        #     mid = (left + rite) / 2
+        #     if mid % 2:
+        #         mid -= 1
+        #     if nums[mid] == nums[mid + 1]:
+        #         left += 2
+        #     else:
+        #         rite = mid
+                
+        # return nums[left]
+
+        return sum(set(nums))*2 - sum(nums)
+
     def reverseWords_557(self, s):
         """
         Description
@@ -1834,6 +1861,24 @@ class EasySolutions(object):
         emails = list(set([starts[i] + '@' + ends[i] for i in range(len(emails))]))
         
         return len(emails)
+
+    def minFallingPathSum_931(self, A):
+        """
+        Description
+        -----------
+        Given a square array of integers A, we want the minimum sum of a falling path through A. A falling path starts at any element in the first row, and chooses one element from each row.  The next row's choice must be in a column that is different from the previous row's column by at most one.
+        
+        Parameters
+        ----------
+        :type A:    List[List[int]]
+        :rtype:     int
+        """
+        
+        for i in range(1,len(A)):
+            for j in range(len(A)):
+                A[i][j] += min(A[i - 1][j and j - 1:j + 2])
+                
+        return min(A[-1])
 
     def validMountainArray_941(self, A):
         """
