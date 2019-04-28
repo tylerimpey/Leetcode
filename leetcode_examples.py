@@ -1465,6 +1465,22 @@ class EasySolutions(object):
 
         return 0
 
+    def maximumProduct_628(self, nums):
+        """
+        Description
+        -----------
+        Given an integer array, find three numbers whose product is maximum and output the maximum product.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     int
+        """
+        
+        nums.sort()
+        
+        return nums[-1] * max([nums[0]*nums[1], nums[-2]*nums[-3]])
+
     def judgeCircle_657(self, moves):
         """
         Description
