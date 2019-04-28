@@ -1335,6 +1335,29 @@ class EasySolutions(object):
         
         return ' '.join(w[::-1] for w in s.split())
 
+    def matrixReshape_566(self, nums, r, c):
+        """
+        Description
+        -----------
+        In MATLAB, there is a very useful function called 'reshape', which can reshape a matrix into a new one with different size but keep its original data. You're given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively. The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were. If the 'reshape' operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
+        
+        Parameters
+        ----------
+        :type nums: List[List[int]]
+        :type r:    int
+        :type c:    int
+        :rtype:     List[List[int]]
+        """
+        
+        flat = sum(nums, [])
+        
+        if len(flat) != r * c:
+            return nums
+        
+        result = zip(*([iter(flat)] * c))
+        
+        return map(list, result)
+
     def arrayPairSum_561(self, nums):
         """
         Description
@@ -1511,6 +1534,29 @@ class EasySolutions(object):
         for i in A:
             result.append(B.index(i))
         
+        return result
+
+    def partitionLabels_763(self, S):
+        """
+        Description
+        -----------
+        A string S of lowercase letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts. Note: S will have length in range [1, 500]. S will consist of lowercase letters ('a' to 'z') only.
+        
+        Parameters
+        ----------
+        :type S:    str
+        :rtype:     List[int]
+        """
+        
+        result = []
+        
+        while S:
+            i = 1
+            while set(S[:i]) & set(S[i:]):
+                i += 1
+            result.append(i)
+            S = S[i:]
+
         return result
 
     def numJewelsInStones_771(self, J, S):
@@ -1710,6 +1756,30 @@ class EasySolutions(object):
         # return even+odd
 
         return [num for num in A if num % 2 == 0] + [num for num in A if num % 2 == 1]
+
+    def sortArray_912(self, nums):
+        """
+        Description
+        -----------
+        Given an array of integers nums, sort the array in ascending order.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     List[int]
+        """
+
+        import random
+        
+        if len(nums) <= 1:
+            return nums
+
+        pivot = random.choice(nums)
+        lt = [v for v in nums if v < pivot]
+        eq = [v for v in nums if v == pivot]
+        gt = [v for v in nums if v > pivot]
+
+        return self.sortArray_912(lt) + eq + self.sortArray_912(gt)
 
     def sortArrayByParityII_922(self, A):
         """
