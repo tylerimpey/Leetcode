@@ -1205,6 +1205,28 @@ class EasySolutions(object):
             
         return result
 
+    def minMoves_453(self, nums):
+        """
+        Description
+        -----------
+        Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     int
+        """
+
+        # result = 0
+        # minimum = min(nums)
+
+        # for num in nums:
+        #     result += num - minimum
+
+        # return result
+        
+        return sum(nums) - min(nums)*len(nums)
+
     def hammingDistance_461(self, x, y):
         """
         Description
