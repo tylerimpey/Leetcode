@@ -602,6 +602,27 @@ class EasySolutions(object):
         else:
             return None
 
+    def convertToTitle_168(self, n):
+        """
+        Description
+        -----------
+        Given a positive integer, return its corresponding column title as appear in an Excel sheet.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     str
+        """
+        
+        result = ''
+    
+        while n > 0:
+            n -= 1
+            result = chr(ord('A') + n % 26) + result
+            n //= 26
+            
+        return result
+
     def majorityElement_169(self, nums):
         """
         Description
@@ -764,6 +785,24 @@ class EasySolutions(object):
         unique = list(set(nums))
 
         return len(unique) != len(nums)
+
+    def isPowerOfTwo_231(self, n):
+        """
+        Description
+        -----------
+        Given an integer, write a function to determine if it is a power of two.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     bool
+        """
+        
+        # return any(n == 2 ** i for i in range(32))
+        
+        # return any(n == 1 << i for i in range(32))
+        
+        return n > 0 and n & (n - 1) == 0
 
     def isAnagram_242(self, s, t):
         """
@@ -1136,6 +1175,29 @@ class EasySolutions(object):
                 
         return result
 
+    def isPerfectSquare_367(self, num):
+        """
+        Description
+        -----------
+        Given a positive integer num, write a function which returns True if num is a perfect square else False. Note: Do not use any built-in library function such as sqrt.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     bool
+        """
+        
+        if num < 0:
+            return False
+        
+        result, i = 0, 1
+        
+        while result < num:
+            result += i
+            i += 2
+            
+        return result == num
+
     def firstUniqChar_387(self, s):
         """
         Description
@@ -1480,6 +1542,27 @@ class EasySolutions(object):
         nums.sort()
         
         return nums[-1] * max([nums[0]*nums[1], nums[-2]*nums[-3]])
+
+    def findErrorNums_645(self, nums):
+        """
+        Description
+        -----------
+        
+        Parameters
+        ----------
+        :type nums: List[int]
+        :rtype:     List[int]
+        """
+        
+        # sum_set = sum(set(nums))
+        
+        # repeated = sum(nums) - sum_set
+        
+        # missing = sum(range(len(nums)+1)) - sum_set
+        
+        # return [repeated, missing]
+
+        return [sum(nums) - sum(set(nums)), sum(range(len(nums)+1)) - sum(set(nums))]
 
     def judgeCircle_657(self, moves):
         """
@@ -2552,6 +2635,20 @@ class MediumSolutions(object):
                 rite = mid - 1
         
         return False
+
+    def judgeSquareSum_633(self, c):
+        """
+        Description
+        -----------
+        Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
+        
+        Parameters
+        ----------
+        :type c:    int
+        :rtype:     bool
+        """
+        
+        return any(((c - i ** 2) ** 0.5) % 1 == 0 for i in range(int(c ** 0.5) + 1))
 
     def kClosest_973(self, points, K):
         """
