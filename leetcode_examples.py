@@ -823,6 +823,41 @@ class EasySolutions(object):
         
         return sorted([ord(l) for l in s]) == sorted([ord(l) for l in t])
 
+    def isStrobogrammatic_246(self, num):
+        """
+        Description
+        -----------
+        A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Write a function to determine if a number is strobogrammatic. The number is represented as a string.
+        
+        Parameters
+        ----------
+        :type num:  str
+        :rtype:     bool
+        """
+        
+        # n = len(num)
+        
+        # bad_numbers = ['3', '2', '5', '7', '4']
+        
+        # if len(num) % 2 == 1:
+        #     if num[n/2] not in ['8', '1', '0']:
+        #         return False
+        
+        # compliments = {'6': '9', '9': '6', '8': '8', '1': '1', '0': '0'}
+        
+        # rite = n-1
+        
+        # for left in range(n/2):
+        #     if num[left] in bad_numbers:
+        #         return False
+        #     if compliments[num[left]] != num[rite]:
+        #         return False
+        #     rite -= 1
+        
+        # return True
+
+        return all(num[i] + num[~i] in '696 00 11 88' for i in range(len(num)/2+1))
+
     def canAttendMeetings_252(self, intervals):
         """
         Description
@@ -915,6 +950,35 @@ class EasySolutions(object):
         
         n = len(nums)
         return n * (n+1) / 2 - sum(nums)
+
+    def numberToWords_273(self, num):
+        """
+        Description
+        -----------
+        Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 231 - 1.
+        
+        Parameters
+        ----------
+        :type num:  int
+        :rtype:     str
+        """
+        
+        bank_19 = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']
+        bank_10 = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
+        
+        def words(n):
+            if n < 20:
+                return bank_19[n-1:n]
+            if n < 100:
+                return [bank_10[n/10-2]] + words(n % 10)
+            if n < 1000:
+                return [bank_19[n/100-1]] + ['Hundred'] + words(n % 100)
+            
+            for i, word in enumerate(('Thousand', 'Million', 'Billion'), 1):
+                if n < 1000**(i+1):
+                    return words(n / 1000**i) + [word] + words(n % 1000**i)
+        
+        return ' '.join(words(num)) or 'Zero'
 
     def moveZeroes_283(self, nums):
         """
@@ -1266,6 +1330,28 @@ class EasySolutions(object):
             result.append(temp)
             
         return result
+
+    def arrangeCoins_441(self, n):
+        """
+        Description
+        -----------
+        You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins. Given n, find the total number of full staircase rows that can be formed. n is a non-negative integer and fits within the range of a 32-bit signed integer.
+        
+        Parameters
+        ----------
+        :type n:    int
+        :rtype:     int
+        """
+        
+        if n == 1:
+            return 1
+        
+        result = 1
+        while(n >= result):
+            n -= result
+            result += 1
+            
+        return result - 1
 
     def minMoves_453(self, nums):
         """
